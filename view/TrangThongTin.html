@@ -1,0 +1,337 @@
+  <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+    </div>
+
+    <div class="carousel-inner">
+      <div class="carousel-item active" ng-repeat="item in imgages track by $index">
+        <img src="{{item}}"
+          alt="Los Angeles" class="d-block" style="width:100%">
+      </div>
+    </div>
+
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+  <div class="container-fluid">
+    <div class="container" style="background: rgb(202, 202, 197);">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="btn col-3 bg-success-subtle p-2 fs-5 hover-black" ng-repeat="headers in header track by $index">
+              <i class="{{headers.icon}}"></i> {{headers.title}}
+            </div>
+          </div>
+        </div>
+        <div class="card-footer ms-2">
+          <div class="row">
+            <div class="col-2 form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1">
+                Một chiều
+              </label>
+            </div>
+            <div class="col-2 form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+              <label class="form-check-label" for="flexRadioDefault2">
+                Khứ hồi
+              </label>
+            </div>
+            <div class="col-2">
+              <select class="form-select" aria-label="Default select example">
+                <option selected>VND</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="row col-12 col-md-6">
+              <div class="col-8 pt-2">
+                <i class="bi bi-airplane"></i><label for="haha">Điểm khởi hành</label>
+                <select class="form-select mt-1" id="haha" aria-label="Default select example">
+                  <option selected>Chọn điểm khởi hành</option>
+                  <option>Hà Nội</option>
+                  <option>Đà Nẵng</option>
+                  <option>Hồ Chí Minh</option>
+                  <option>Thanh Hoá</option>
+                  <option>Hải Phòng</option>
+                </select>
+              </div>
+              <div class="col-4 p-3">
+                Ngày đi
+                <input class="form-control" type="date" placeholder="Chọn ngày đi" aria-label="default input example">
+              </div>
+            </div>
+            <div class="row col-12 col-md-6 ">
+              <div class="col-8 pt-3">
+                <i class="bi bi-airplane"></i><label for="haha">Điểm đến</label>
+                <select class="form-select mt-1" id="haha" aria-label="Default select example">
+                  <option selected>Chọn điểm đến</option>
+                  <option>Hà Nội</option>
+                  <option>Đà Nẵng</option>
+                  <option>Hồ Chí Minh</option>
+                  <option>Thanh Hoá</option>
+                  <option>Hải Phòng</option>
+                </select>
+              </div>
+              <div class="col-4 p-3">
+                Ngày về
+                <input class="form-control" type="date" placeholder="Chọn ngày đi" aria-label="default input example">
+              </div>
+            </div>
+            <div class="col-2 pt-4">
+              <button type="button" class="btn btn-warning">Tìm chuyến bay</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-3 fw-bold">
+        <div class="col-4 col-sm-4 col-md-2" ng-repeat="mtams in mtamhai track by $index">
+          <img src="{{mtams.link}}" class="img-fluid">
+          <p>{{mtams.title}}</p>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-12 col-sm-4 col-md-4">
+          <div class="card">
+            <img
+              src="https://vj-prod-website-cms.s3.ap-southeast-1.amazonaws.com/skycare380x260vn1689666523556-1695094643503.webp"
+              class="img-fluid" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Bảo hiểm</h5>
+              <p class="card-text">
+              <p><strong>An tâm trọn vẹn bay cùng Vietjet</strong></p>
+              <ul style="padding-left: 20px; margin-top: 0px;"></ul>
+              <li>Các chương trình bảo hiểm hấp dẫn đến từ các đối tác bảo hiểm uy tín của Vietjet</li>
+              <li>Thủ tục mua và bồi thường đơn giản, nhanh chóng</li>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-4 col-md-4">
+          <div class="card">
+            <img
+              src="https://vj-prod-website-cms.s3.ap-southeast-1.amazonaws.com/swift2471592284169014-1695094650429.webp"
+              class="img-fluid" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Gửi hàng nhanh</h5>
+              <p class="card-text">
+              <p><strong>Vận chuyển Bắc-Trung-Nam siêu tốc, tiện lợi</strong></p>
+              <ul style="padding-left: 20px; margin-top: 0px;"></ul>
+              <li>Rút ngắn thời gian, khoảng cách hàng nghìn km đi lại của Vietjet</li>
+              <li>Đơn nhận, gửi hàng 24/7</li>
+              </p>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-12 col-sm-4 col-md-4">
+          <div class="card">
+            <img
+              src="https://vj-prod-website-cms.s3.ap-southeast-1.amazonaws.com/bannervj3802601691554683744-1695094655469.webp"
+              class="img-fluid" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">HD BankViet</h5>
+              <p class="card-text">
+              <p><strong>Bay cùng thẻ HD Bank Vietjet</strong></p>
+              <ul style="padding-left: 20px; margin-top: 0px;"></ul>
+              <li>Ưu tiên checkin tại sân bay dành cho hạng thẻ Platinum Vietjet</li>
+              <li>Giảm 50% mua sắm, du lịch, ăn uống</li>
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class=" mt-3">
+        <img class="img-fluid w-100"
+          src="https://vj-prod-website-cms.s3.ap-southeast-1.amazonaws.com/banner1200x240vn-1698743606086.jpg"
+          alt="Vietjet">
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-12 col-sm-4 col-md-4 position-relative mt-3" ng-repeat="mtam in mtamhai2 track by $index">
+          <img src="{{mtam.link}}"
+            alt="" class="img-fluid ">
+          <h5 class="position-absolute top-0 start-1">{{mtam.title}}</h5>
+        </div>
+        
+      </div>
+
+      <h4>Câu hỏi thường gặp</h4>
+      <div class="row mt-2">
+        <div class="col-md-2">
+          <a href="#" class="btn btn-warning"><i class="bi bi-airplane"></i>Đặt vé</a>
+        </div>
+        <div class="col-md-2">
+          <a href="#" class="btn btn-warning"><i class="bi bi-discord"></i>Chỗ ngồi</a>
+        </div>
+        <div class="col-md-2">
+          <a href="#" class="btn btn-warning"><i class="bi bi-suitcase2"></i>Hành lý</a>
+        </div>
+        <div class="col-md-2">
+          <a href="#" class="btn btn-warning"><i class="bi bi-geo-alt"></i>Checkin</a>
+        </div>
+        <div class="col-md-2">
+          <a href="#" class="btn btn-warning"><i class="bi bi-airplane"></i> Nối chuyến</a>
+        </div>
+        <div class="col-md-2">
+          <a href="#" class="btn btn-warning"><i class="bi bi-cup-straw"></i>Suất ăn</a>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center mt-3">
+        <img
+          src="https://vj-prod-website-cms.s3.ap-southeast-1.amazonaws.com/files/cungvietjetbayvaotuonglai-1592297893727.png"
+          alt="img-fluid">
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-2" ng-repeat="mtams in mtam1a track by $index">
+          <h5>{{mtams.so}}</h5>
+          <p>{{mtams.chu}}</p>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center mt-3">
+        <img src="https://vj-prod-website-cms.s3.ap-southeast-1.amazonaws.com/files/flygreenvi-1602759084211.png"
+          alt="img-fluid">
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-2">
+          <img src="https://vj-prod-website-cms.s3.ap-southeast-1.amazonaws.com/files/giai6-1592297512599.png" alt=""
+            class="img-fluid">
+          <p>Hãng hàng không chi phí thấp dẫn đầu Châu Á Thái Bình Dương</p>
+        </div>
+        <div class="col-2">
+          <img src="https://vj-prod-website-cms.s3.ap-southeast-1.amazonaws.com/files/giai5-1592297595995.png" alt=""
+            class="img-fluid">
+          <p>Doanh nghiệp tốt nhất nghành Hàng Không tại Đông Nam Á</p>
+        </div>
+        <div class="col-2">
+          <img src="https://vj-prod-website-cms.s3.ap-southeast-1.amazonaws.com/files/giai2-1592297520999.png" alt=""
+            class="img-fluid">
+          <p>Top các công ty niêm yết tốt nhất theo bảng xếp hạng Forbes</p>
+        </div>
+        <div class="col-2">
+          <img src="https://vj-prod-website-cms.s3.ap-southeast-1.amazonaws.com/files/giai3-1592297547966.png" alt=""
+            class="img-fluid">
+          <p>Thương hiệu tốt nhất Châu Á</p>
+        </div>
+        <div class="col-2">
+          <img src="https://vj-prod-website-cms.s3.ap-southeast-1.amazonaws.com/files/giai1-1592297529179.png" alt=""
+            class="img-fluid">
+          <p>Môi trường làm việc tốt nhất Châu Á</p>
+        </div>
+        <div class="col-2">
+          <img src="https://vj-prod-website-cms.s3.ap-southeast-1.amazonaws.com/files/giai4-1592297571379.png" alt=""
+            class="img-fluid">
+          <p>Doanh nghiệp phát triển bền vững</p>
+        </div>
+      </div>
+ 
+      <div class="row mt-3">
+        <div class="col-3">
+          <p><i class="bi bi-airplane"></i>Để có chuyến bay tốt đẹp</p>
+          <a class="text-success" href="#">
+            Điều lệ vận chuyển <br>
+            Điều kiện vé<br>
+            Phiếu yêu cầu hoàn vé<br>
+            Phiếu yêu cầu sử dụng tiền bảo lưu<br>
+            Thông tin bồi thường<br>
+            Phí và lệ phí<br>
+            Giấy tờ tùy thân<br>
+            Sân bay và nhà ga quốc tế<br>
+            Quy định hành lý<br>
+            Tìm kiếm hành lý<br>
+          </a>
+        </div>
+        <div class="col-3">
+          <p><i class="bi bi-airplane"></i>Mua hành lý, suất ăn, chọn chỗ ngồi và hơn thế nữa....</p>
+          <a class="text-success" href="">
+            Chọn chỗ ngồi ưu tiên <br>
+            Mua trước hành lý <br>
+            Đặt trước suất ăn - Jet cafe <br>
+            Hàng miễn thuế<br>
+            Quà lưu niệm<br>
+            Giải trí<br>
+            Vietjet E-Voucher<br>
+          </a>
+        </div>
+        <div class="col-3">
+          <p><i class="bi bi-airplane"></i>Mua vé ở đâu?</p>
+          <a class="text-success" href="">
+            Tổng đài bán vé <br>
+            Phòng bán vé<br>
+            Đại lý bán vé<br>
+            GDS/ Chuyến Bay Liên Danh<br>
+            Đăng ký khách hàng Doanh nghiệp<br>
+            Đăng ký làm đại lý online<br>
+            flight icon red<br>
+          </a>
+          <p><i class="bi bi-airplane"></i>Thẻ tín dụng HDBank Vietjet</p>
+        </div>
+        <div class="col-3">
+          <p><i class="bi bi-airplane"></i>Dịch vụ cao cấp</p>
+          <a class="text-success" href="">
+            Hạng vé thương gia - Business <br>
+            Hạng vé Skyboss<br>
+            Phòng chờ sang trọng<br>
+            flight icon red<br>
+          </a>
+          <p><i class="bi bi-airplane"></i>Về Vietjet</p>
+          <a class="text-success" href="">
+            Giới thiệu công ty<br>
+            Tin tức<br>
+            Khuyến mại<br>
+            Tổng đài phục vụ khách hàng<br>
+          </a>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-3">
+          <p>Kết nối với Vietjet</p>
+          <img src="https://cms-uat.s3.ap-southeast-1.amazonaws.com/facebook-1607147833349.png" alt=""
+            class="img-fluid">
+          <img src="https://cms-uat.s3.ap-southeast-1.amazonaws.com/insta-1607147833353.png" alt="" class="img-fluid">
+          <img src="https://cms-uat.s3.ap-southeast-1.amazonaws.com/twitter-1607147826657.png" alt="" class="img-fluid">
+          <img src="https://cms-uat.s3.ap-southeast-1.amazonaws.com/line-1607147826652.png" alt="" class="img-fluid">
+          <img src="https://cms-uat.s3.ap-southeast-1.amazonaws.com/wechat-1607147826660.png" alt="" class="img-fluid">
+          <img src="https://cms-uat.s3.ap-southeast-1.amazonaws.com/zalo-1607147826662.png" alt="" class="img-fluid">
+          <p>Cập nhật thông tin chuyến bay Flightradar</p>
+        </div>
+        <div class="col-3">
+          <p>Chắp cánh ước mơ với Vietjet</p>
+          <img src="https://www.vietjetair.com/static/media/unesco.551b23b8.webp" alt="" class="img-fluid">
+        </div>
+        <div class="col-3">
+          <p>Hướng dẫn thanh toán với Vietjet</p>
+          <img src="https://cms-uat.s3.ap-southeast-1.amazonaws.com/applestore-1607148441670.png" alt=""
+            class="img-fluid">
+          <img src="https://cms-uat.s3.ap-southeast-1.amazonaws.com/googleplay-1607148441674.png" alt=""
+            class="img-fluid">
+        </div>
+        <div class="col-3">
+          <p>CÔNG TY CỔ PHẦN HÀNG KHÔNG VIETJET</p>
+          <strong>302/3 Phố Kim Mã, Phường Ngọc Khánh, Quận Ba Đình, TP. Hà Nội, Việt Nam.</strong>
+        </div>
+      </div>
+
+    
+    </div>
+  </div>
+
+
+

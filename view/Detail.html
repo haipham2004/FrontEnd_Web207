@@ -1,0 +1,85 @@
+<div class="card">
+  <p class="fs-2 text-danger">Thông tin chi tiết chuyến bay</p>
+  <form>
+    <div class="row">
+      <div class="col-md-6">
+        <label for="name">Tên khách hàng</label>
+        <input type="text" class="form-control" id="name" formControlName="name" ng-model="inputValue.HoTen" disabled>
+      </div>
+      <div class="col-md-6">
+        <label for="CCCD">Số CCCD</label>
+        <input type="text" class="form-control" id="CCCD" formControlName="CCCD" ng-model="inputValue.CCCDs" disabled>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <label for="phone">Số điện thoại</label>
+        <input type="text" class="form-control" id="phone" formControlName="phone" ng-model="inputValue.SDTs" disabled>
+      </div>
+      <div class="col-md-6">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email" formControlName="email" ng-model="inputValue.email" disabled>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-6">
+        <label for="departure">Điểm đi</label>
+        <input type="text" class="form-control" id="departure" formControlName="departure" ng-model="inputValue.DiemDi"
+          disabled>
+      </div>
+      <div class="col-md-6">
+        <label for="destination">Điểm đến</label>
+        <input type="text" class="form-control" id="destination" formControlName="destination"
+          ng-model="inputValue.DiemDen" disabled>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-6">
+        <label for="departureDate">Ngày đi</label>
+        <input type="date" class="form-control" id="departureDate" formControlName="departureDate"
+          ng-model="inputValue.NgayDi" disabled>
+      </div>
+      <div class="col-md-6">
+        <label for="returnDate">Ngày về</label>
+        <input type="date" class="form-control" id="returnDate" formControlName="returnDate"
+          ng-model="inputValue.NgayVe" disabled>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <label for="HanhLy">Hành lý</label>
+        <input type="text" class="form-control" id="HanhLy" formControlName="HanhLy" ng-model="inputValue.HanhLy"
+          disabled>
+      </div>
+      <div class="col-md-6">
+        <label for="">Loại ghế</label>
+        <select class="form-select" ng-model="inputValue.LoaiGhe" disabled>
+          <option value="{{inputValue.LoaiGhe}} selected">{{inputValue.LoaiGhe}}</option>
+          <option value="ThuongGia" selected>Thương gia</option>
+          <option value="HangNhat" selected>Hạng nhất</option>
+          <option value="PhoThong" selected>Phổ thông</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <p>Chặng Bay</p>
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Một chiều" ng-model="inputValue.ChangBay" ng-checked="inputValue.ChangBay === 'Một chiều'" disabled>
+        <label class="form-check-label" for="flexRadioDefault1">Một chiều</label>
+        <input class="form-check-input ms-5" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="Hai chiều" ng-model="inputValue.ChangBay" ng-checked="inputValue.ChangBay === 'Hai chiều'" disabled>
+        <label class="form-check-label" for="flexRadioDefault2">Hai chiều</label>        
+      </div>
+    </div>
+
+  </form>
+  <div class="d-flex justify-content-end mt-3">
+    <a href="#!/Edit/{{inputValue.id}}" class="btn btn-dark me-3">Edit</a>
+    <a href="#!/ListVe" class="btn btn-secondary">Close</a>
+  </div>
+</div>

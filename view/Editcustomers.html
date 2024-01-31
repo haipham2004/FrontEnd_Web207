@@ -1,0 +1,104 @@
+<p>{{title}}</p>
+
+<div class="card">
+  <p class="fs-2 text-danger">Chỉnh sửa chuyến bay</p>
+  <div class="ms-3">
+    <a href="#!/Detail/{{inputValue.id}}" class="btn btn-secondary">Quay lại</a>
+  </div>
+  <form ng-submit="Edit()">
+    <div class="row">
+      <div class="col-md-6">
+        <label for="name">Tên khách hàng</label>
+        <input type="text" class="form-control" id="name" formControlName="name" ng-model="inputValue.HoTen">
+        <p class="text-danger" ng-if="KiemTra.HoTen">Vui lòng nhập tên</p>
+      </div>
+      <div class="col-md-6">
+        <label for="CCCD">Số CCCD</label>
+        <input type="text" class="form-control" id="CCCD" formControlName="CCCD" ng-model="inputValue.CCCDs">
+        <p class="text-danger" ng-if="KiemTra.CCCDs">Vui lòng nhập CCCD</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <label for="phone">Số điện thoại</label>
+        <input type="text" class="form-control" id="phone" formControlName="phone" ng-model="inputValue.SDTs">
+        <p class="text-danger" ng-if="KiemTra.SDTs">Vui lòng nhập SDT</p>
+      </div>
+      <div class="col-md-6">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email" formControlName="email" ng-model="inputValue.email">
+        <p class="text-danger" ng-if="KiemTra.email">Vui lòng nhập email</p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-6">
+        <label for="departure">Điểm đi</label>
+        <input type="text" class="form-control" id="departure" formControlName="departure" ng-model="inputValue.DiemDi">
+        <p class="text-danger" ng-if="KiemTra.DiemDi">Vui lòng nhập DiemDi</p>
+      </div>
+      <div class="col-md-6">
+        <label for="destination">Điểm đến</label>
+        <input type="text" class="form-control" id="destination" formControlName="destination"
+          ng-model="inputValue.DiemDen">
+        <p class="text-danger" ng-if="KiemTra.DiemDen">Vui lòng nhập DiemDen</p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-6">
+        <label for="departureDate">Ngày đi</label>
+        <input type="date" class="form-control" id="departureDate" formControlName="departureDate"
+          ng-model="inputValue.NgayDi">
+          <p class="text-danger" ng-if="KiemTra.NgayDi">Vui lòng nhập ngày đi </p>
+      </div>
+      <div class="col-md-6">
+        <label for="returnDate">Ngày về</label>
+        <input type="date" class="form-control" id="returnDate" formControlName="returnDate"
+          ng-model="inputValue.NgayVe">
+          <p class="text-danger" ng-if="KiemTra.NgayVe">Vui lòng nhập ngày về </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <label for="HanhLy">Hành lý</label>
+        <input type="text" class="form-control" id="HanhLy" formControlName="HanhLy" ng-model="inputValue.HanhLy">
+        <p class="text-danger" ng-if="KiemTra.HanhLy">Vui lòng nhập HanhLy</p>
+        <p class="text-danger" ng-if="inputValue.HanhLy < 0 || inputValue.HanhLy > 30">Số lượng hành lí 0-30kg</p>
+      </div>
+      <div class="col-md-6">
+        <label for="">Loại ghế</label>
+        <select class="form-select" aria-label="Default select example" ng-change="TongTien()" ng-model="inputValue.LoaiGhe">
+          <option value="ThuongGia">Thương gia</option>
+          <option value="HangNhat">Hạng nhất</option>
+          <option value="PhoThong">Phổ thông</option>
+        </select>
+        <p class="text-danger" ng-if="KiemTra.LoaiGhe">Vui lòng chọn loại ghế</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <label for="">Chặng bay</label>
+        <input class="form-check-input" ng-change="TongTien()" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Một chiều" ng-model="inputValue.ChangBay" ng-checked="inputValue.ChangBay === 'Một chiều'">
+        <label class="form-check-label" for="flexRadioDefault1">Một chiều</label>
+        <input class="form-check-input ms-5" ng-change="TongTien()" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="Hai chiều" ng-model="inputValue.ChangBay" ng-checked="inputValue.ChangBay === 'Hai chiều'">
+        <label class="form-check-label" for="flexRadioDefault2">Hai chiều</label>      
+      </div>
+      <p class="text-danger" ng-if="KiemTra.ChangBay">Vui lòng chọn chặng bay</p>
+    </div>
+    <div ng-if="inputValue.LoaiGhe">
+      <label for="">Thành tiền: </label>
+      <input type="text" class="form-control text-danger fs-1" ng-model="inputValue.Gia" disabled>
+   </div>
+    
+    <div class="d-flex justify-content-end mt-3">
+      <button type="submit" class="btn btn-success me-3">Update</button>
+      <a href="#!/ListVe" class="btn btn-secondary">Close</a>
+    </div>
+  </form>
+
+</div>

@@ -1,0 +1,262 @@
+<div id="demo" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" ng-repeat="item in imgages track by $index">
+      <img src="{{item}}" alt="Los Angeles" class="d-block" style="width:100%">
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+<p>Trang đặt vé</p>
+<p>Ok: {{mtam}}</p>
+<div class="container">
+  <a href="#!/ListVe" class="btn btn-warning">Danh Sách vé đã đặt</a>
+  <form ng-submit="Add()">
+    <div class="row">
+      <div class="col-md-6">
+        <label for="name">Tên khách hàng</label>
+        <input type="text" class="form-control" id="name" formControlName="name" ng-model="inputValue.HoTen">
+        <p class="text-danger" ng-if="KiemTra.HoTen">Vui lòng nhập tên</p>
+      </div>
+      <div class="col-md-6">
+        <label for="CCCD">Số CCCD</label>
+        <input type="text" class="form-control" id="CCCD" formControlName="CCCD" ng-model="inputValue.CCCDs">
+        <p class="text-danger" ng-if="KiemTra.CCCDs">Vui lòng nhập CCCD</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <label for="phone">Số điện thoại</label>
+        <input type="text" class="form-control" id="phone" formControlName="phone" ng-model="inputValue.SDTs">
+        <p class="text-danger" ng-if="KiemTra.SDTs">Vui lòng nhập SDT</p>
+      </div>
+      <div class="col-md-6">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email" formControlName="email" ng-model="inputValue.email">
+        <p class="text-danger" ng-if="KiemTra.email">Vui lòng nhập email</p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-6">
+        <label for="departure">Điểm đi</label>
+        <input type="text" class="form-control" id="departure" formControlName="departure" ng-model="inputValue.DiemDi">
+        <p class="text-danger" ng-if="KiemTra.DiemDi">Vui lòng nhập DiemDi</p>
+      </div>
+      <div class="col-md-6">
+        <label for="destination">Điểm đến</label>
+        <input type="text" class="form-control" id="destination" formControlName="destination"
+          ng-model="inputValue.DiemDen">
+        <p class="text-danger" ng-if="KiemTra.DiemDen">Vui lòng nhập DiemDen</p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-6">
+        <label for="departureDate">Ngày đi</label>
+        <input type="date" class="form-control" id="departureDate" formControlName="departureDate"
+          ng-model="inputValue.NgayDi">
+          <p class="text-danger" ng-if="KiemTra.NgayDi">Vui lòng nhập ngày đi </p>
+      </div>
+      <div class="col-md-6">
+        <label for="returnDate">Ngày về</label>
+        <input type="date" class="form-control" id="returnDate" formControlName="returnDate"
+          ng-model="inputValue.NgayVe">
+          <p class="text-danger" ng-if="KiemTra.NgayVe">Vui lòng nhập ngày về </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <label for="HanhLy">Hành lý</label>
+        <input type="text" class="form-control" id="HanhLy" formControlName="HanhLy" ng-model="inputValue.HanhLy">
+        <p class="text-danger" ng-if="KiemTra.HanhLy">Vui lòng nhập HanhLy</p>
+        <p class="text-danger" ng-if="inputValue.HanhLy < 0 || inputValue.HanhLy > 30">Số lượng hành lí 0-30kg</p>
+      </div>
+      <div class="col-md-6">
+        <label for="">Loại ghế</label>
+        <select class="form-select" aria-label="Default select example" ng-change="TongTien()" ng-model="inputValue.LoaiGhe">
+          <option value="" >Chọn loại ghế</option>
+          <option value="ThuongGia" selected>Thương gia</option>
+          <option value="HangNhat">Hạng nhất</option>
+          <option value="PhoThong">Phổ thông</option>
+        </select>
+        <p class="text-danger" ng-if="KiemTra.LoaiGhe">Vui lòng chọn loại ghế</p>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <label for="">Chặng bay</label>
+          <input class="form-check-input" ng-change="TongTien()" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Một chiều" ng-model="inputValue.ChangBay">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Một chiều
+          </label>
+          <input class="form-check-input ms-3" ng-change="TongTien()" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="Hai chiều"  ng-model="inputValue.ChangBay">
+          <label class="form-check-label"  for="flexRadioDefault2">
+            Hai chiều
+          </label>
+          <p class="text-danger" ng-if="KiemTra.ChangBay">Vui lòng chọn chặng bay</p>
+        </div>
+      </div>
+      <div ng-if="inputValue.LoaiGhe">
+         <label for="">Thành tiền: </label>
+         <input type="text" class="form-control text-danger fs-1" ng-model="inputValue.Gia" disabled>
+      </div>
+    </div>
+  <button type="submit" class="btn btn-success mt-3">Addcustomers</button>
+  <button type="reset" class="btn btn-secondary mt-3">Clear</button>  
+  </form>
+
+
+
+
+
+  <div class="d-flex justify-content-center mt-3">
+    <img
+      src="https://vj-prod-website-cms.s3.ap-southeast-1.amazonaws.com/files/cungvietjetbayvaotuonglai-1592297893727.png"
+      alt="img-fluid">
+  </div>
+
+  <div class="row mt-3">
+    <div class="row mt-3">
+      <div class="col-2" ng-repeat="mtams in mtam1a track by $index">
+        <h5>{{mtams.so}}</h5>
+        <p>{{mtams.chu}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center mt-3">
+    <img src="https://vj-prod-website-cms.s3.ap-southeast-1.amazonaws.com/files/flygreenvi-1602759084211.png"
+      alt="img-fluid">
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-2">
+      <img src="https://vj-prod-website-cms.s3.ap-southeast-1.amazonaws.com/files/giai6-1592297512599.png" alt=""
+        class="img-fluid">
+      <p>Hãng hàng không chi phí thấp dẫn đầu Châu Á Thái Bình Dương</p>
+    </div>
+    <div class="col-2">
+      <img src="https://vj-prod-website-cms.s3.ap-southeast-1.amazonaws.com/files/giai5-1592297595995.png" alt=""
+        class="img-fluid">
+      <p>Doanh nghiệp tốt nhất nghành Hàng Không tại Đông Nam Á</p>
+    </div>
+    <div class="col-2">
+      <img src="https://vj-prod-website-cms.s3.ap-southeast-1.amazonaws.com/files/giai2-1592297520999.png" alt=""
+        class="img-fluid">
+      <p>Top các công ty niêm yết tốt nhất theo bảng xếp hạng Forbes</p>
+    </div>
+    <div class="col-2">
+      <img src="https://vj-prod-website-cms.s3.ap-southeast-1.amazonaws.com/files/giai3-1592297547966.png" alt=""
+        class="img-fluid">
+      <p>Thương hiệu tốt nhất Châu Á</p>
+    </div>
+    <div class="col-2">
+      <img src="https://vj-prod-website-cms.s3.ap-southeast-1.amazonaws.com/files/giai1-1592297529179.png" alt=""
+        class="img-fluid">
+      <p>Môi trường làm việc tốt nhất Châu Á</p>
+    </div>
+    <div class="col-2">
+      <img src="https://vj-prod-website-cms.s3.ap-southeast-1.amazonaws.com/files/giai4-1592297571379.png" alt=""
+        class="img-fluid">
+      <p>Doanh nghiệp phát triển bền vững</p>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-3">
+      <p><i class="bi bi-airplane"></i>Để có chuyến bay tốt đẹp</p>
+      <a class="text-success" href="#">
+        Điều lệ vận chuyển <br>
+        Điều kiện vé<br>
+        Phiếu yêu cầu hoàn vé<br>
+        Phiếu yêu cầu sử dụng tiền bảo lưu<br>
+        Thông tin bồi thường<br>
+        Phí và lệ phí<br>
+        Giấy tờ tùy thân<br>
+        Sân bay và nhà ga quốc tế<br>
+        Quy định hành lý<br>
+        Tìm kiếm hành lý<br>
+      </a>
+    </div>
+    <div class="col-3">
+      <p><i class="bi bi-airplane"></i>Mua hành lý, suất ăn, chọn chỗ ngồi và hơn thế nữa....</p>
+      <a class="text-success" href="">
+        Chọn chỗ ngồi ưu tiên <br>
+        Mua trước hành lý <br>
+        Đặt trước suất ăn - Jet cafe <br>
+        Hàng miễn thuế<br>
+        Quà lưu niệm<br>
+        Giải trí<br>
+        Vietjet E-Voucher<br>
+      </a>
+    </div>
+    <div class="col-3">
+      <p><i class="bi bi-airplane"></i>Mua vé ở đâu?</p>
+      <a class="text-success" href="">
+        Tổng đài bán vé <br>
+        Phòng bán vé<br>
+        Đại lý bán vé<br>
+        GDS/ Chuyến Bay Liên Danh<br>
+        Đăng ký khách hàng Doanh nghiệp<br>
+        Đăng ký làm đại lý online<br>
+        flight icon red<br>
+      </a>
+      <p><i class="bi bi-airplane"></i>Thẻ tín dụng HDBank Vietjet</p>
+    </div>
+    <div class="col-3">
+      <p><i class="bi bi-airplane"></i>Dịch vụ cao cấp</p>
+      <a class="text-success" href="">
+        Hạng vé thương gia - Business <br>
+        Hạng vé Skyboss<br>
+        Phòng chờ sang trọng<br>
+        flight icon red<br>
+      </a>
+      <p><i class="bi bi-airplane"></i>Về Vietjet</p>
+      <a class="text-success" href="">
+        Giới thiệu công ty<br>
+        Tin tức<br>
+        Khuyến mại<br>
+        Tổng đài phục vụ khách hàng<br>
+      </a>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-3">
+      <p>Kết nối với Vietjet</p>
+      <img src="https://cms-uat.s3.ap-southeast-1.amazonaws.com/facebook-1607147833349.png" alt="" class="img-fluid">
+      <img src="https://cms-uat.s3.ap-southeast-1.amazonaws.com/insta-1607147833353.png" alt="" class="img-fluid">
+      <img src="https://cms-uat.s3.ap-southeast-1.amazonaws.com/twitter-1607147826657.png" alt="" class="img-fluid">
+      <img src="https://cms-uat.s3.ap-southeast-1.amazonaws.com/line-1607147826652.png" alt="" class="img-fluid">
+      <img src="https://cms-uat.s3.ap-southeast-1.amazonaws.com/wechat-1607147826660.png" alt="" class="img-fluid">
+      <img src="https://cms-uat.s3.ap-southeast-1.amazonaws.com/zalo-1607147826662.png" alt="" class="img-fluid">
+      <p>Cập nhật thông tin chuyến bay Flightradar</p>
+    </div>
+    <div class="col-3">
+      <p>Chắp cánh ước mơ với Vietjet</p>
+      <img src="https://www.vietjetair.com/static/media/unesco.551b23b8.webp" alt="" class="img-fluid">
+    </div>
+    <div class="col-3">
+      <p>Hướng dẫn thanh toán với Vietjet</p>
+      <img src="https://cms-uat.s3.ap-southeast-1.amazonaws.com/applestore-1607148441670.png" alt="" class="img-fluid">
+      <img src="https://cms-uat.s3.ap-southeast-1.amazonaws.com/googleplay-1607148441674.png" alt="" class="img-fluid">
+    </div>
+    <div class="col-3">
+      <p>CÔNG TY CỔ PHẦN HÀNG KHÔNG VIETJET</p>
+      <strong>302/3 Phố Kim Mã, Phường Ngọc Khánh, Quận Ba Đình, TP. Hà Nội, Việt Nam.</strong>
+    </div>
+  </div>

@@ -1,0 +1,56 @@
+<h5>{{title}}</h5>
+<div class="card">
+  <div class="card-header">
+    Bảng Khách Hàng
+  </div>
+  <div class="d-flex justify-content-end mt-3 me-5">
+    <a href="#!/Add" class="btn btn-success">+Addcustomers</a>
+  </div>
+  <div class="card-body">
+    <table class="table table-hover table-striped">
+      <thead>
+        <th>STT</th>
+        <th>Họ Tên</th>
+        <th>Số CCCD</th>
+        <th>SDT</th>
+        <th>Email</th>
+        <!-- <th>Điểm đi</th>
+        <th>Điểm đến</th>
+        <th>Ngày đi</th>
+        <th>Ngày về</th>
+        <th>Hành lí</th>
+        <th>Loại ghế</th>  -->
+        <th>Thành tiền</th>
+        <th>Action</th>
+      </thead>
+      <tbody>
+        <tr ng-repeat="listMtam in listKH track by $index">
+          <td>{{$index+1}}</td>
+          <td>{{listMtam.HoTen}}</td>
+          <td>{{listMtam.CCCDs}}</td>
+          <td>{{listMtam.SDTs}}</td>
+          <td>{{listMtam.email}}</td>
+          <!-- <td>{{listMtam.DiemDen}}</td>
+          <td>{{listMtam.DiemDi}}</td>
+          <td>{{listMtam.NgayDi}}</td>
+          <td>{{listMtam.NgayVe}}</td>
+          <td>{{listMtam.HanhLy}}</td>
+          <td>{{listMtam.LoaiGhe}}</td> -->
+          <td>{{listMtam.Gia | currency:"":0}} VND</td>
+          <th>
+            <a href="#!/Detail/{{listMtam.id}}" class="btn btn-warning">Chi Tiết</a>
+            <a ng-click="delete(listMtam.id)" class="btn btn-danger">Delete</a>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-end mt-3">
+      <a href="#!/Add" class="btn btn-secondary">Close</a>
+    </div>
+  </div>
+
+  
+
+
+
+  
